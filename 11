@@ -1,0 +1,77 @@
+/*  11. Escreva um programa que leia um número inteiro maior do que zero e devolva, na tela, a
+ soma de todos os seus algarismos. Por exemplo, ao número 251 corresponderá o valor
+ 8 (2 + 5 + 1). Se o número lido não for maior do que zero, o programa terminará com a
+ mensagem “Número inválido”.  */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int numero, digito, soma = 0;
+
+    printf("Bem vindo ao somador de digitos.\n");
+
+    printf("\nDigite um numero inteiro maior que zero: ");
+    scanf("%d", &numero);
+
+    if (numero <= 0)
+    {
+        printf("Número inválido\n");
+    }
+    else
+    {
+        while (numero > 0)
+        {
+            digito = numero % 10;   // pega o último dígito
+            soma = soma + digito;   // acumula na soma
+            numero = numero / 10;   // remove o último dígito
+        }
+
+        printf("A soma dos digitos vale: %d\n", soma);
+    }
+
+    system("pause");
+    return 0;
+}
+
+
+/*
+
+1ª iteração:
+
+numero = 251
+
+digito = numero % 10 = 251 % 10 = 1 → pegamos o último dígito.
+
+soma = soma + digito = 0 + 1 = 1
+
+numero = numero / 10 = 251 / 10 = 25
+
+👉 Resultado parcial: soma = 1, número virou 25.
+
+2ª iteração:
+
+numero = 25
+
+digito = numero % 10 = 25 % 10 = 5
+
+soma = soma + digito = 1 + 5 = 6
+
+numero = numero / 10 = 25 / 10 = 2
+
+👉 Resultado parcial: soma = 6, número virou 2.
+
+3ª iteração:
+
+numero = 2
+
+digito = numero % 10 = 2 % 10 = 2
+
+soma = soma + digito = 6 + 2 = 8
+
+numero = numero / 10 = 2 / 10 = 0 → o laço termina.
+
+👉 Resultado final: soma = 8.
+
+*/
