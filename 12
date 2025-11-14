@@ -1,0 +1,33 @@
+ /*  12. Ler um número inteiro. Se o número lido for negativo, escreva a mensagem “Número
+ inválido”. Se o número for positivo, calcular o logaritmo deste numero.  */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    double num;
+
+    printf("Digite um numero qualquer inteiro: \n");
+    scanf("%lf", &num);
+
+    if (num < 0)
+    {
+        printf("Numero invalido");
+    }
+    else if (num > 0)
+    {
+        printf("Numero valido. \n");
+        printf("O logaritmo neperiano desse numero eh %.2f \n", log(num)); // para achar o logaritmo neperiano
+        printf("O logaritmo na base 10 desse numero eh %.2f \n", log10(num)); // para achar o logaritmo na base 10
+
+    }
+    else
+    {
+        printf("Numero invalido. \n");
+    }
+
+    system("pause");
+    return 0;
+}
