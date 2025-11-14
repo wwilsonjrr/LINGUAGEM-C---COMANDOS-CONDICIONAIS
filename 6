@@ -1,0 +1,35 @@
+ /*  6. Escreva um programa que, dados dois números inteiros, mostre na tela o maior deles,
+ assim como a diferença existente entre ambos.  */
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int num1, num2, dif;
+
+    printf("Digite dois numeros quaisquer: \n");
+    scanf("%d %d", &num1, &num2);
+
+    if (num1 > num2)
+    {
+        dif = num1 - num2;
+        printf("O numero maior deles eh %d. \n", num1);
+        printf("A diferenca entre esse numeros eh %d \n", dif);
+    }
+    else if (num2 > num1)
+    {
+        dif = num2 - num1;
+        printf("O numero maior deles eh %d. \n", num2);
+        printf("A diferenca entre esse numeros eh %d \n", dif);
+    }
+    else
+    {
+        printf("Os dois numeros sao iguais. \n");
+    }
+
+    system("pause");
+    return 0;
+}
