@@ -1,0 +1,35 @@
+/*
+9. Leia o salário de um trabalhador e o valor da prestação de um empréstimo.
+   Se a prestação for maior que 20% do salário, imprima: "Empréstimo não concedido",
+   caso contrário, imprima: "Empréstimo concedido".
+*/
+
+#include <stdio.h>   // Biblioteca padrão de entrada e saída (printf, scanf)
+#include <stdlib.h>  // Biblioteca padrão (para system("pause"))
+
+int main()  // Função principal do programa
+{
+    float valor_salario, valor_prestacao, porcentagem;  // Declara variáveis para armazenar o salário, a prestação e a porcentagem
+
+    printf("Digite o valor do salario de um trabalhador: \n");  // Solicita ao usuário o valor do salário
+    scanf("%f", &valor_salario);  // Lê o valor do salário e armazena na variável valor_salario
+
+    printf("Digite o valor da prestacao de um emprestimo: \n");  // Solicita ao usuário o valor da prestação
+    scanf("%f", &valor_prestacao);  // Lê o valor da prestação e armazena na variável valor_prestacao
+
+    porcentagem = ((valor_prestacao)/(valor_salario))*100;  // Calcula quanto % a prestação representa do salário
+
+    if (porcentagem > 20)  // Verifica se a porcentagem é maior que 20%
+    {
+        printf("A porcentagem do emprestimo eh %.2f%% \n", porcentagem);  // Mostra a porcentagem formatada com duas casas decimais
+        printf("Emprestimo nao concedido. \n");  // Mensagem caso ultrapasse o limite de 20%
+    }
+    else  // Caso contrário, se for menor ou igual a 20%
+    {
+        printf("A porcentagem do emprestimo eh %.2f%% \n", porcentagem);  // Mostra a porcentagem
+        printf("Emprestimo concedido. \n");  // Mensagem indicando aprovação do empréstimo
+    }
+
+    system("pause");  // Pausa o programa antes de encerrar (útil no Windows)
+    return 0;  // Retorna 0 indicando que o programa terminou corretamente
+}
