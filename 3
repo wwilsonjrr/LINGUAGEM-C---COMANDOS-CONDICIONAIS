@@ -1,0 +1,35 @@
+ /*  3. Leia um numero real. Se o número for positivo imprima a raiz quadrada. Do contrário,
+ imprima o numero ao quadrado.  */
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    float num, raiz, quadrado;
+
+    printf("Digite um numero real qualquer: \n");
+    scanf("%f", &num);
+
+    if (num > 0)
+    {
+        raiz = sqrt(num);
+        printf("Esse numero eh positivo e a raiz quadrada vale: %.2f \n", raiz);
+    }
+    else if (num < 0)
+    {
+        quadrado = pow(num,2);
+        printf("Esse numero eh negativo e o quadrado dele vale: %.2f \n", quadrado);
+    }
+    else
+    {
+        printf("Esse numero eh nulo. \n");
+    }
+
+    system("pause");
+    return 0;
+}
