@@ -1,0 +1,35 @@
+/*  4. Faça um programa que leia um número e, caso ele seja positivo, calcule e mostre:
+ --> O número digitado ao quadrado;
+ --> A raiz quadrada do número digitado;  */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    float num, quadrado, raiz;
+
+    printf("Digite um numero qualquer real: \n");
+    scanf("%f", &num);
+
+    if (num > 0)
+    {
+        quadrado = num*num;
+        printf("O numero ao quadrado vale: %.2f \n", quadrado);
+
+        raiz = sqrt(num);
+        printf("A raiz quadrada desse numero vale: %.2f \n", raiz);
+    }
+    else if (num < 0)
+    {
+        printf("Esse numero eh negativo \n");
+    }
+    else
+    {
+        printf("Esse numero eh nulo. \n");
+    }
+
+    system("pause");
+    return 0;
+}
