@@ -1,0 +1,129 @@
+/*
+35. Leia uma data e determine se ela é válida.
+Ou seja, verifique se o mês está entre 1 e 12,
+e se o dia existe naquele mês.
+Note que Fevereiro tem 29 dias em anos bissextos e 28 dias em anos não bissextos.
+*/
+
+#include <stdio.h>   // Biblioteca padrão para entrada e saída
+#include <stdlib.h>  // Biblioteca padrão para uso da função system()
+
+int main()
+{
+    // Declaração das variáveis para armazenar dia, mês e ano digitados
+    int dia, mes, ano;
+
+    // Variável que indicará se a data é válida (1 = válida, 0 = inválida)
+    int valido = 1;
+
+    // Solicita ao usuário que digite o dia
+    printf("Digite o dia: \n");
+    scanf("%d", &dia);
+
+    // Solicita o mês
+    printf("Digite o mes: \n");
+    scanf("%d", &mes);
+
+    // Solicita o ano
+    printf("Digite o ano: \n");
+    scanf("%d", &ano);
+
+    // Mostra a data informada pelo usuário
+    printf("A data que voce me informou eh: %02d/%02d/%04d \n", dia, mes, ano);
+
+    // ===================================================================
+    // Início da verificação do mês
+    // ===================================================================
+    if (mes < 1 || mes > 12)
+    {
+        // Se o mês for menor que 1 ou maior que 12, a data é inválida
+        valido = 0;
+    }
+    else
+    {
+        // Se o mês for válido (entre 1 e 12), verificamos o número de dias
+        switch (mes)
+        {
+            // Meses com 31 dias
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+            {
+                // Se o dia for menor que 1 ou maior que 31, a data é inválida
+                if (dia < 1 || dia > 31)
+                {
+                    valido = 0;
+                }
+                break;
+            }
+
+            // Meses com 30 dias
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+            {
+                // Se o dia for menor que 1 ou maior que 30, a data é inválida
+                if (dia < 1 || dia > 30)
+                {
+                    valido = 0;
+                }
+                break;
+            }
+
+            // Fevereiro (caso especial)
+            case 2:
+            {
+                // Teste para ano bissexto:
+                // Um ano é bissexto se for divisível por 4 e não for por 100,
+                // exceto se também for divisível por 400.
+                if ((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0))
+                {
+                    // Ano bissexto → Fevereiro tem 29 dias
+                    if (dia < 1 || dia > 29)
+                    {
+                        valido = 0;
+                    }
+                }
+                else
+                {
+                    // Ano não bissexto → Fevereiro tem 28 dias
+                    if (dia < 1 || dia > 28)
+                    {
+                        valido = 0;
+                    }
+                }
+                break;
+            }
+
+            // Caso o mês não seja nenhum dos anteriores (teoricamente impossível)
+            default:
+            {
+                valido = 0;
+                break;
+            }
+        }
+    }
+
+    // ===================================================================
+    // Impressão do resultado final
+    // ===================================================================
+    if (valido == 1)
+    {
+        printf("A data eh valida.\n");
+    }
+    else
+    {
+        printf("A data nao eh valida.\n");
+    }
+
+    // Pausa o sistema antes de encerrar (útil no Windows)
+    system("pause");
+
+    // Retorna 0 para indicar que o programa foi executado com sucesso
+    return 0;
+}
