@@ -1,0 +1,82 @@
+/*  37. As tarifas de certo parque de estacionamento s˜ão as seguintes:
+
+        1a e 2a hora- R$ 1,00 cada
+        3a e 4a hora- R$ 1,40 cada
+        5a hora e seguintes- R$ 2,00 cada
+
+ O número de horas a pagar é sempre inteiro e arredondado por excesso. Deste modo,
+ quem estacionar durante 61 minutos pagará por duas horas, que é o mesmo que pagaria
+ se tivesse permanecido 120 minutos. Os momentos de chegada ao parque e partida
+ deste s˜ão apresentados na forma de pares de inteiros, representando horas e minutos.
+ Por exemplo, o par 12 50 representará “dez para a uma da tarde”. Pretende-se criar um
+ programa que, lidos pelo teclado os momentos de chegada e de partida, escreva na tela
+ o preço cobrado pelo estacionamento. Admite-se que a chegada e a partida se d˜ão com
+ intervalo n˜ão superior a 24 horas. Portanto, se uma dada hora de chegada for superior
+ a da partida, isso n˜ão é uma situaçõo de erro, antes significará que a partida ocorreu no
+ dia seguinte ao da chegada.
+
+REVISAR O CÓDIGO!
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    int chegada_horas, chegada_minutos, partida_horas, partida_minutos;
+    float horas_decimal_chegada, horas_decimal_partida, minutos_chegada, minutos_partida, diferenca_minutos;
+    float preco_cobrado;
+    int horas_totais;
+
+    printf("Digite a hora de chegada: \n");
+    scanf("%d", &chegada_horas);
+
+    printf("Digite o minuto de chegada: \n");
+    scanf("%d", &chegada_minutos);
+
+    printf("Digite a hora de partida: \n");
+    scanf("%d", &partida_horas);
+
+    printf("Digite o minuto de partida: \n");
+    scanf("%d", &partida_minutos);
+
+    printf("\nA chegada aconteceu: %02d:%02d \n", chegada_horas, chegada_minutos);
+    printf("A partida aconteceu: %02d:%02d \n", partida_horas, partida_minutos);
+
+    // Transformando em minutos
+    minutos_chegada = chegada_horas * 60 + chegada_minutos;
+    minutos_partida = partida_horas * 60 + partida_minutos;
+
+    // Caso a partida seja no dia seguinte
+    if (minutos_partida < minutos_chegada)
+    {
+        minutos_partida += 24 * 60;
+    }
+
+    diferenca_minutos = minutos_partida - minutos_chegada;
+    printf("\nO tempo de estacionamento foi de: %.0f minutos\n", diferenca_minutos);
+
+    // Converter minutos em horas, arredondando para cima
+    horas_totais = ceil(diferenca_minutos / 60.0);
+
+    // Calcular o preço
+    if (horas_totais <= 2)
+    {
+        preco_cobrado = horas_totais * 1.0;
+    }
+    else if (horas_totais <= 4)
+    {
+        preco_cobrado = 2 * 1.0 + (horas_totais - 2) * 1.4;
+    }
+    else
+    {
+        preco_cobrado = 2 * 1.0 + 2 * 1.4 + (horas_totais - 4) * 2.0;
+    }
+
+    printf("O preco cobrado pelo estacionamento eh: R$ %.2f\n", preco_cobrado);
+
+    system("pause");
+    return 0;
+}
