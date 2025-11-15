@@ -1,0 +1,53 @@
+/*  24. Uma empresa vende o mesmo produto para quatro diferentes estados. Cada estado
+ possui uma taxa diferente de imposto sobre o produto (MG 7%; SP 12%; RJ 15%; MS
+ 8%). Faça um programa em que o usuário entre com o valor e o estado destino do
+ produto e o programa retorne o preço final do produto acrescido do imposto do estado
+ em que ele será vendido. Se o estado digitado n˜ão for válido, mostrar uma mensagem
+ de erro.  */
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    char opcao;
+    float num;
+
+    printf("\n=== TAXA DE IMPOSTO SOBRE O PRODUTO ===\n");
+    printf("1 --> MINAS GERAIS\n");
+    printf("2 --> SAO PAULO\n");
+    printf("3 --> RIO DE JANEIRO\n");
+    printf("4 --> MATO GROSSO DO SUL\n");
+
+    printf("Escolha um numero entre (1-4): \n");
+    scanf(" %c", &opcao); // espaço antes de %c para ignorar ENTER
+
+    printf("Digite o valor do produto: \n");
+    scanf("%f", &num);
+
+    switch (opcao) {
+        case '1':
+            printf("\nVoce escolheu Minas Gerais.\n");
+            printf("Preco final do produto acrescido do imposto vale: %.2f\n", num + num*0.07);
+            break;
+        case '2':
+            printf("\nVoce escolheu Sao Paulo.\n");
+            printf("Preco final do produto acrescido do imposto vale: %.2f\n", num + num*0.12);
+            break;
+        case '3':
+            printf("\nVoce escolheu Rio de Janeiro.\n");
+            printf("Preco final do produto acrescido do imposto vale: %.2f\n", num + num*0.15);
+            break;
+        case '4':
+            printf("\nVoce escolheu Mato Grosso do Sul.\n");
+            printf("Preco final do produto acrescido do imposto vale: %.2f\n", num + num*0.08);
+            break;
+        default:
+            printf("\nOpcao Invalida!\n");
+            break;
+    }
+
+    system("pause");
+    return 0;
+}
