@@ -1,0 +1,64 @@
+/*  36. Escreva um programa que, dado o valor da venda, imprima a comiss˜ão que deverá ser
+ paga ao vendedor. Para calcular a comiss˜ão, considere a tabela abaixo:
+
+
+ VENDA MENSAL                                                             COMISSÃO
+
+ Maior ou igual a R$100.000,00                                    R$700,00 + 16% das vendas
+ Menor que R$100.000,00 e maior ou igual a R$80.000,00            R$650,00 + 14% das vendas
+ Menor que R$80.000,00 e maior ou igual a R$60.000,00             R$600,00 + 14% das vendas
+ Menor que R$60.000,00 e maior ou igual a R$40.000,00             R$550,00 + 14% das vendas
+ Menor que R$40.000,00 e maior ou igual a R$20.000,00             R$500,00 + 14% das vendas
+ Menor que R$20.000,00                                            R$400,00 + 14% das vendas
+
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float valor_venda, comissao;
+
+    printf("Digite o valor da venda: \n");
+    scanf("%f", &valor_venda);
+
+    if (valor_venda >= 100000)
+    {
+        printf("O valor da comissao do vendedor eh: R$%.2f \n", 700 + valor_venda*0.16);
+    }
+
+    if (valor_venda >= 80000 && valor_venda < 100000)
+    {
+        printf("O valor da comissao do vendedor eh: R$%.2f \n", 650 + valor_venda*0.14);
+
+    }
+    else if (valor_venda >= 60000 && valor_venda < 80000)
+    {
+        printf("O valor da comissao do vendedor eh: R$%.2f \n", 600 + valor_venda*0,14);
+
+    }
+    else if (valor_venda >= 40000 && valor_venda < 60000)
+    {
+        printf("O valor da comissao do vendedor eh: R$%.2f \n", 550 + valor_venda*0.14);
+
+    }
+    else if (valor_venda >= 20000 && valor_venda < 40000)
+    {
+        printf("O valor da comissao do vendedor eh: R$%.2f \n", 500 + valor_venda*0.14);
+
+    }
+    else if (valor_venda < 20000)
+    {
+        printf("O valor da comissao do vendedor eh: R$%.2f \n", 400 + valor_venda*0.14);
+
+    }
+    else
+    {
+        printf("Valor invalido! \n");
+    }
+
+
+    system("pause");
+    return 0;
+}
