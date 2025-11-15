@@ -1,0 +1,56 @@
+ /*  15. Usando switch, escreva um programa que leia um inteiro entre 1 e 7 e imprima o dia
+ da semana correspondente a este numero. Isto é, domingo se 1, segunda-feira se 2, e
+ assim por diante.  */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    char opcao;
+    int num;
+
+    printf("\n=== OPCOES DE DIAS DA SEMANA ===\n");
+    printf("1 --> Domingo\n");
+    printf("2 --> Segunda-feira\n");
+    printf("3 --> Terca-feira\n");
+    printf("4 --> Quarta-feira\n");
+    printf("5 --> Quinta-feira\n");
+    printf("6 --> Sexta-feira\n");
+    printf("7 --> Sabado\n");
+
+    printf("Digite um numero entre (1-7): \n");
+    scanf(" %c", &opcao); // espaço antes de %c para ignorar ENTER
+
+    switch (opcao)
+    {
+        case '1':
+            printf("\nVoce escolheu Domingo. \n");
+            break;
+        case '2':
+            printf("\nVoce escolheu Segunda-feira. \n");
+            break;
+        case '3':
+            printf("\nVoce escolheu Terça-feira. \n");
+            break;
+        case '4':
+            printf("\nVoce escolheu Quarta-feira. \n");
+            break;
+        case '5':
+            printf("\nVoce escolheu Quinta-feira. \n");
+            break;
+        case '6':
+            printf("\nVoce escolheu Sexta-feira. \n");
+            break;
+        case '7':
+            printf("\nVoce escolheu Sabado. \n");
+            break;
+        default:
+            printf("\nOpcao Invalida!\n");
+            break;
+    }
+
+    system("pause");
+    return 0;
+}
+
