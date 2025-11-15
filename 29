@@ -1,0 +1,116 @@
+/*
+   29. Faça uma prova de matemática para crianças que estão aprendendo a somar números
+   inteiros menores do que 100. Escolha números aleatórios entre 1 e 100, e mostre na
+   tela a pergunta: qual é a soma de a + b, onde a e b são os números aleatórios. Peça a
+   resposta. Faça cinco perguntas ao aluno, e mostre para ele as perguntas e as respostas
+   corretas, além de quantas vezes o aluno acertou.
+*/
+
+/*
+   🚸 RESTRIÇÕES:
+   - Usar APENAS variáveis, expressões e condicionais (if, else if, else)
+   - NÃO usar laços (for, while), vetores, funções, ou estruturas de repetição
+   - Cada pergunta será feita manualmente, uma a uma
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+    // === INICIALIZAÇÃO ===
+    srand((unsigned)time(NULL)); // Inicializa o gerador de números aleatórios
+
+    // Variável para contar quantos acertos o aluno teve
+    int acertos = 0;
+
+    // === PERGUNTA 1 ===
+    int a1 = (rand() % 99) + 1; // número aleatório entre 1 e 99
+    int b1 = (rand() % 99) + 1; // número aleatório entre 1 e 99
+    int resposta1, correta1 = a1 + b1; // soma correta
+    printf("Pergunta 1: Qual e a soma de %d + %d? ", a1, b1); // mostra a pergunta
+    scanf("%d", &resposta1); // lê a resposta do aluno
+
+    // Verifica se acertou
+    if (resposta1 == correta1)
+        acertos = acertos + 1;
+
+    // === PERGUNTA 2 ===
+    int a2 = (rand() % 99) + 1;
+    int b2 = (rand() % 99) + 1;
+    int resposta2, correta2 = a2 + b2;
+    printf("Pergunta 2: Qual e a soma de %d + %d? ", a2, b2);
+    scanf("%d", &resposta2);
+
+    if (resposta2 == correta2)
+        acertos = acertos + 1;
+
+    // === PERGUNTA 3 ===
+    int a3 = (rand() % 99) + 1;
+    int b3 = (rand() % 99) + 1;
+    int resposta3, correta3 = a3 + b3;
+    printf("Pergunta 3: Qual e a soma de %d + %d? ", a3, b3);
+    scanf("%d", &resposta3);
+
+    if (resposta3 == correta3)
+        acertos = acertos + 1;
+
+    // === PERGUNTA 4 ===
+    int a4 = (rand() % 99) + 1;
+    int b4 = (rand() % 99) + 1;
+    int resposta4, correta4 = a4 + b4;
+    printf("Pergunta 4: Qual e a soma de %d + %d? ", a4, b4);
+    scanf("%d", &resposta4);
+
+    if (resposta4 == correta4)
+        acertos = acertos + 1;
+
+    // === PERGUNTA 5 ===
+    int a5 = (rand() % 99) + 1;
+    int b5 = (rand() % 99) + 1;
+    int resposta5, correta5 = a5 + b5;
+    printf("Pergunta 5: Qual e a soma de %d + %d? ", a5, b5);
+    scanf("%d", &resposta5);
+
+    if (resposta5 == correta5)
+        acertos = acertos + 1;
+
+    // === MOSTRA RESULTADOS ===
+    printf("\n===== GABARITO =====\n");
+
+    // Pergunta 1
+    if (resposta1 == correta1)
+        printf("Pergunta 1: %d + %d = %d | Voce respondeu %d | ACERTOU!\n", a1, b1, correta1, resposta1);
+    else
+        printf("Pergunta 1: %d + %d = %d | Voce respondeu %d | ERROU!\n", a1, b1, correta1, resposta1);
+
+    // Pergunta 2
+    if (resposta2 == correta2)
+        printf("Pergunta 2: %d + %d = %d | Voce respondeu %d | ACERTOU!\n", a2, b2, correta2, resposta2);
+    else
+        printf("Pergunta 2: %d + %d = %d | Voce respondeu %d | ERROU!\n", a2, b2, correta2, resposta2);
+
+    // Pergunta 3
+    if (resposta3 == correta3)
+        printf("Pergunta 3: %d + %d = %d | Voce respondeu %d | ACERTOU!\n", a3, b3, correta3, resposta3);
+    else
+        printf("Pergunta 3: %d + %d = %d | Voce respondeu %d | ERROU!\n", a3, b3, correta3, resposta3);
+
+    // Pergunta 4
+    if (resposta4 == correta4)
+        printf("Pergunta 4: %d + %d = %d | Voce respondeu %d | ACERTOU!\n", a4, b4, correta4, resposta4);
+    else
+        printf("Pergunta 4: %d + %d = %d | Voce respondeu %d | ERROU!\n", a4, b4, correta4, resposta4);
+
+    // Pergunta 5
+    if (resposta5 == correta5)
+        printf("Pergunta 5: %d + %d = %d | Voce respondeu %d | ACERTOU!\n", a5, b5, correta5, resposta5);
+    else
+        printf("Pergunta 5: %d + %d = %d | Voce respondeu %d | ERROU!\n", a5, b5, correta5, resposta5);
+
+    // === TOTAL DE ACERTOS ===
+    printf("\nVoce acertou %d de 5 perguntas.\n", acertos);
+
+    return 0;
+}
