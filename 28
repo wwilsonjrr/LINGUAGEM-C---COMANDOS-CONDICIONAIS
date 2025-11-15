@@ -1,0 +1,80 @@
+/*  28 - Faça um programa que leia três números inteiros positivos e efetue o cálculo de uma das
+         seguintes médias de acordo com um valor numérico digitado pelo usuário:
+
+        (a) Geométrica:  cbrt(x*y*z)
+
+        (b) Ponderada: (x + 2*y + 3*z)/(6)
+
+        (c) Harmônica: (1) / ((1/x) + (1/y) + (1/z))
+
+        (d) Aritmética: (x+y+z)/(3)
+
+ */
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    char opcao;
+    int x, y, z;
+
+    printf("\n=== OPCOES DE MEDIAS ===\n");
+    printf("1 --> Geometrica\n");
+    printf("2 --> Ponderada\n");
+    printf("3 --> Harmonica\n");
+    printf("4 --> Aritmetica\n");
+
+    printf("Escolha um numero entre (1-4): \n");
+    scanf(" %c", &opcao); // espaço antes de %c para ignorar ENTER
+
+    switch (opcao)
+    {
+        case '1':
+            printf("\nVoce escolheu Media Geometrica.\n");
+            printf("Digite 3 numeros quaisquer inteiros: ");
+            scanf("%d %d %d", &x, &y, &z);
+            printf("O resultado eh: %.2f\n", (float)(cbrt(x*y*z)));
+            break;
+
+        case '2':
+            printf("\nVoce escolheu Media Ponderada.\n");
+            printf("Digite 3 numeros quaisquer inteiros: ");
+            scanf("%d %d %d", &x, &y, &z);
+            printf("O resultado eh: %.2f\n", (float)((x + 2*y + 3*z) / 6.0));
+            break;
+
+        case '3':
+            printf("\nVoce escolheu Media Harmonica.\n");
+            printf("Digite 3 numeros quaisquer inteiros: ");
+            scanf("%d %d %d", &x, &y, &z);
+
+            if (x == 0 || y == 0 || z == 0)
+            {
+                printf("Essa Media Harmonica nao pode ser calculada (divisao por zero).\n");
+            }
+            else
+            {
+                printf("O resultado eh: %.2f\n", (float)((1.0) / ((1.0/x) + (1.0/y) + (1.0/z))));
+            }
+            break;
+
+        case '4':
+            printf("\nVoce escolheu Media Aritmetica.\n");
+            printf("Digite 3 numeros quaisquer inteiros: ");
+            scanf("%d %d %d", &x, &y, &z);
+            printf("O resultado eh: %.2f\n", (float)((x + y + z) / 3.0));
+            break;
+
+        default:
+            printf("\nOpcao Invalida!\n");
+            break;
+    }
+
+    system("pause");
+    return 0;
+}
