@@ -1,0 +1,79 @@
+/*  32. Escrever um programa que leia o código do produto escolhido do cardápio de uma lan-
+chonete e a quantidade. O programa deve calcular o valor a ser pago por aquele lanche.
+ Considere que a cada execução somente será calculado um pedido. O cardápio da lan-
+chonete segue o padr˜ão abaixo:
+
+ESPECIFICAÇÃO          CÓDIGO           PREÇO
+
+Cachorro Quente         100              1.20
+Bauru Simples           101              1.30
+Bauru com Ovo           102              1.50
+Hamburguer              103              1.20
+Cheeseburguer           104              1.70
+Suco                    105              2.20
+Refrigerante            106              1.00
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int opcao; // agora é inteiro e não char
+    int quantidade;
+
+    printf("\n=== OPCOES DE PRODUTOS DA LANCHONETE ===\n");
+    printf("100 --> Cachorro Quente\n");
+    printf("101 --> Bauru Simples\n");
+    printf("102 --> Bauru com Ovo\n");
+    printf("103 --> Hamburguer\n");
+    printf("104 --> Cheeseburguer\n");
+    printf("105 --> Suco\n");
+    printf("106 --> Refrigerante\n");
+
+    printf("Digite um numero entre (100-106): \n");
+    scanf(" %d", &opcao); // espaço antes de %c para ignorar ENTER
+
+    printf("\nDigite a quantidade que voce quer: \n");
+    scanf("%d", &quantidade);
+
+    //Obs: quando o numero de opcoes é superior a 9, não uso char, mas int
+
+    switch (opcao)
+    {
+        case 100: // Sem aspas simples nos numeros inteiros
+            printf("\nVoce escolheu Cachorro Quente. \n");
+            printf("O valor pago pelo lanche eh: %.2f \n", quantidade*1.20);
+            break;
+        case 101:
+            printf("\nVoce escolheu Bauru Simples. \n");
+            printf("O valor pago pelo lanche eh: %.2f \n", quantidade*1.30);
+            break;
+        case 102:
+            printf("\nVoce escolheu Bauru com Ovo. \n");
+            printf("O valor pago pelo lanche eh: %.2f \n", quantidade*1.50);
+            break;
+        case 103:
+            printf("\nVoce escolheu Hamburguer. \n");
+            printf("O valor pago pelo lanche eh: %.2f \n", quantidade*1.20);
+            break;
+        case 104:
+            printf("\nVoce escolheu Cheeseburguer. \n");
+            printf("O valor pago pelo lanche eh: %.2f \n", quantidade*1.70);
+            break;
+        case 105:
+            printf("\nVoce escolheu Suco. \n");
+            printf("O valor pago pelo lanche eh: %.2f \n", quantidade*2.20);
+            break;
+        case 106:
+            printf("\nVoce escolheu Refrigerante. \n");
+            printf("O valor pago pelo lanche eh: %.2f \n", quantidade*1.00);
+            break;
+        default:
+            printf("\nOpcao Invalida!\n");
+            break;
+    }
+
+    system("pause");
+    return 0;
+}
