@@ -1,0 +1,75 @@
+/*
+30. Faça um programa que receba três números inteiros e mostre-os em ordem crescente.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Declaração das variáveis inteiras que armazenarão os números digitados
+    int a, b, c;
+
+    // Solicita ao usuário que digite o primeiro número
+    printf("Digite o primeiro numero inteiro: ");
+    scanf("%d", &a); // Lê o valor digitado e armazena em 'a'
+
+    // Solicita o segundo número
+    printf("Digite o segundo numero inteiro: ");
+    scanf("%d", &b); // Lê o valor digitado e armazena em 'b'
+
+    // Solicita o terceiro número
+    printf("Digite o terceiro numero inteiro: ");
+    scanf("%d", &c); // Lê o valor digitado e armazena em 'c'
+
+    // Aqui vamos usar apenas condicionais (if, else if, else)
+    // para determinar a ordem crescente dos três números.
+
+    printf("\nOrdem crescente: ");
+
+    // Verifica se a é o menor número
+    if (a <= b && a <= c)  //  if (a < b && a < c)  exclui os casos em que a é igual a b ou c, e isso pode fazer com que o programa não mostre a ordem certa quando há empates.
+    {
+        // Se a for o menor, agora comparamos b e c
+        if (b <= c)
+        {
+            printf("%d, %d, %d\n", a, b, c); // Ordem: a, b, c
+        }
+        else
+        {
+            printf("%d, %d, %d\n", a, c, b); // Ordem: a, c, b
+        }
+    }
+    // Caso b seja o menor número
+    else if (b <= a && b <= c)
+    {
+        // Agora comparamos a e c
+        if (a <= c)
+        {
+            printf("%d, %d, %d\n", b, a, c); // Ordem: b, a, c
+        }
+        else
+        {
+            printf("%d, %d, %d\n", b, c, a); // Ordem: b, c, a
+        }
+    }
+    // Caso contrário, c é o menor número
+    else
+    {
+        // Comparamos a e b
+        if (a <= b)
+        {
+            printf("%d, %d, %d\n", c, a, b); // Ordem: c, a, b
+        }
+        else
+        {
+            printf("%d, %d, %d\n", c, b, a); // Ordem: c, b, a
+        }
+    }
+
+    // Pausa o sistema para visualizar a saída (Windows)
+    system("pause");
+
+    // Retorna 0 para indicar que o programa terminou corretamente
+    return 0;
+}
