@@ -1,0 +1,51 @@
+/*  26. Leia a distância em Km e a quantidade de litros de gasolina consumidos por um carro
+ em um percurso, calcule o consumo em Km/l e escreva uma mensagem de acordo com
+ a tabela abaixo:
+
+CONSUMO        (KM/l)           MENSAGEM
+menor que         8            Venda o carro!
+entre          8 e 14          Econômico!
+maior que        14            Super Econômico!
+
+
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float distancia, quantidade, consumo;
+
+    printf("Digite a distancia (Km): \n");
+    scanf("%f", &distancia);
+
+    printf("Digite a quantidade de litros (l): \n");
+    scanf("%f", &quantidade);
+
+    consumo = distancia / quantidade;
+
+    if(consumo < 8)
+    {
+        printf("O consumo foi: %.2f\n", consumo);
+        printf("Venda o carro!\n");
+    }
+    else if((consumo >= 8) && (consumo <= 14))
+    {
+        printf("O consumo foi: %.2f\n", consumo);
+        printf("Economico!\n");
+    }
+    else if(consumo > 14)
+    {
+        printf("O consumo foi: %.2f\n", consumo);
+        printf("Super Economico!\n");
+    }
+    else
+    {
+        printf("Valor invalido!\n");
+    }
+
+    system("pause");
+    return 0;
+}
