@@ -1,0 +1,73 @@
+/*  31. Faça um programa que receba a altura e o peso de uma pessoa. De acordo com a tabela
+ a seguir, verifique e mostra qual a classificação dessa pessoa.
+
+ALTURA                             PESO
+                  MENOR QUE 60  DE 60 E 90(INCLUSIVE)   ACIMA DE 90
+MENOR QUE 1,20         A                D                    G
+DE 1,20 A 1,70         B                E                    H
+MAIOR QUE 1,70         C                F                    I
+
+
+OBS: ENUNCIADO NÃO FOI BEM ELABORADO, PRECISEI CONSERTAR.
+
+*/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float altura, peso;
+
+    printf("Digite a altura da pessoa: \n");
+    scanf("%f", &altura);
+
+    printf("Digite o peso da pessoa: \n");
+    scanf("%f", &peso);
+
+    if((peso >= 0 && peso <= 60) && (altura >= 0 && altura < 1.20))
+    {
+        printf("\nClassificacao A\n");
+    }
+    else if((peso >= 0 && peso <= 60) && (altura >= 1.20 && altura <= 1.70))
+    {
+        printf("\nClassificacao B\n");
+    }
+    else if((peso >= 0 && peso <= 60) && (altura > 1.70))
+    {
+        printf("\nClassificacao C\n");
+    }
+    else if((peso > 60 && peso <= 90) && (altura >= 0 && altura < 1.20))
+    {
+        printf("\nClassificacao D\n");
+    }
+    else if((peso > 60 && peso <= 90) && (altura >= 1.20 && altura <= 1.70))
+    {
+        printf("\nClassificacao E\n");
+    }
+    else if((peso > 60 && peso <= 90) && (altura > 1.70))
+    {
+        printf("\nClassificacao F\n");
+    }
+    else if((peso > 90) && (altura >= 0 && altura < 1.20))
+    {
+        printf("\nClassificacao G\n");
+    }
+    else if((peso > 90) && (altura >= 1.20 && altura <= 1.70))
+    {
+        printf("\nClassificacao H\n");
+    }
+    else if((peso > 90) && (altura > 1.70))
+    {
+        printf("\nClassificacao I\n");
+    }
+    else
+    {
+        printf("\nValor invalido!\n");
+    }
+
+    system("pause");
+    return 0;
+}
+
