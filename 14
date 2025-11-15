@@ -1,0 +1,47 @@
+/*  14. A nota final de um estudante é calculada a partir de três notas atribuídas entre o intervalo
+ de 0 até 10, respectivamente, a um trabalho de laboratório, a uma avaliação semestral
+ e a um exame final. A média das três notas mencionadas anteriormente obedece aos
+ pesos: Trabalho de Laboratório: 2; Avaliação Semestral: 3; Exame Final: 5. De acordo
+ com o resultado, mostre na tela se o aluno está reprovado (média entre 0 e 2,9), de
+ recuperacão (entre 3 e 4,9) ou se foi aprovado. Faça todas as verificações necessárias.  */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float media_ponderada, nota1, nota2, nota3;
+    int trab_lab = 2, aval_sem = 3, exam_fin = 5;
+
+    printf("Digite a nota 1 do aluno: \n");
+    scanf("%f", &nota1);
+
+    printf("Digite a nota 2 do aluno: \n");
+    scanf("%f", &nota2);
+
+    printf("Digite a nota 3 do aluno: \n");
+    scanf("%f", &nota3);
+
+    media_ponderada = (nota1*trab_lab + nota2*aval_sem + nota3*exam_fin)/(trab_lab + aval_sem + exam_fin);
+
+    if (media_ponderada >= 0.0 && media_ponderada < 3.0)
+    {
+        printf("O aluno tirou uma nota %.2f e foi repravado. \n", media_ponderada);
+    }
+    else if (media_ponderada >= 3.0 && media_ponderada < 5.0)
+    {
+        printf("O aluno tirou uma nota %.2f e ficou de recuperacao. \n", media_ponderada);
+    }
+    else if (media_ponderada >= 5.0 && media_ponderada <= 10.0)
+    {
+        printf("O aluno tirou uma nota %.2f e foi aprovado. \n", media_ponderada);
+    }
+    else
+    {
+        printf("Voce digitou um valor invalido.\n");
+    }
+
+    system("pause");
+    return 0;
+}
