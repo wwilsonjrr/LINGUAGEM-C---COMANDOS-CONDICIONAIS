@@ -1,0 +1,53 @@
+/*   18. Faça um programa que mostre ao usuário um menu com 4 opções de operações ma-
+temáticas (as básicas, por exemplo). O usuário escolhe uma das opções e o seu pro-
+grama ent˜ão pede dois valores numéricos e realiza a operação, mostrando o resultado e
+ saindo.  */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char opcao;
+    float num1, num2;
+
+    printf("\n=== OPCOES DE OPERACOES BASICAS ===\n");
+    printf("1 --> Adicao\n");
+    printf("2 --> Subtracao\n");
+    printf("3 --> Multiplicacao\n");
+    printf("4 --> Divisao\n");
+
+    printf("Escolha um numero entre (1-4): \n");
+    scanf(" %c", &opcao); // espaço antes de %c para ignorar ENTER
+
+    printf("Digite dois numeros quaisquer: \n");
+    scanf("%f %f", &num1, &num2);
+
+    switch (opcao) {
+        case '1':
+            printf("\nVoce escolheu Adicao.\n");
+            printf("O resultado eh: %.2f\n", num1 + num2);
+            break;
+        case '2':
+            printf("\nVoce escolheu Subtracao.\n");
+            printf("O resultado eh: %.2f\n", num1 - num2);
+            break;
+        case '3':
+            printf("\nVoce escolheu Multiplicacao.\n");
+            printf("O resultado eh: %.2f\n", num1 * num2);
+            break;
+        case '4':
+            if (num2 != 0)
+                printf("\nVoce escolheu Divisao.\nO resultado eh: %.2f\n", num1 / num2);
+            else
+                printf("\nErro: divisao por zero nao permitida!\n");
+            break;
+        default:
+            printf("\nOpcao Invalida!\n");
+            break;
+    }
+
+    system("pause");
+    return 0;
+}
